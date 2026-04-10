@@ -1,0 +1,19 @@
+# Processing
+
+*.class
+*.jar
+*.exe
+*.dll
+*.app
+
+# macOS
+
+.DS_Store
+
+# Windows
+
+Thumbs.db
+
+# exports
+
+frames/
