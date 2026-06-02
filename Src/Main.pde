@@ -14,7 +14,7 @@ void setup() {
   noStroke();
   textFont(createFont("Arial", 12));
 
-  // 🌍 build country list + leader city per country
+  //  build country list + leader city per country
   for (int i = 0; i < maxCities; i++) {
 
     String c = table.getString(i, "country");
@@ -66,13 +66,13 @@ void draw() {
 
     int cIndex = countryIndex.get(country);
 
-    // 🌍 country timing
+    //  country timing
     float countryStart = cIndex * 12.0;
     float countryT = t - countryStart;
 
     if (countryT < 0) continue;
 
-    // 🌆 city timing
+    //  city timing
     float appearTime = (i % 200) * 0.1;
     if (countryT < appearTime) continue;
 
@@ -81,23 +81,23 @@ void draw() {
     float x = map(lon, -180, 180, 0, width);
     float y = map(lat, 90, -90, 0, height);
 
-    // ✅ fixed size mapping
+    //  fixed size mapping
     float size = map(log(pop), log(100000), log(20000000), 1, 3);
     size = constrain(size, 1, 4);
 
     boolean isLeader = (countryLeaderRow.get(country) == i);
 
-    // 🌍 capital detection
+    //  capital detection
     String capitalType = row.getString("capital");
     boolean isCapital = "primary".equals(capitalType);
 
-    // 🌍 normal city
+    //  normal city
     if (!isLeader || countryT < 8.0) {
       fill(255, 255 * fade);
       ellipse(x, y, size, size);
     }
 
-    // 👑 leader + wave
+    //  leader + wave
     if (isLeader && countryT > 8.0) {
 
       float waveTime = countryT - 8.0;
@@ -105,13 +105,13 @@ void draw() {
       fill(255, 60, 60, 255 * fade);
       ellipse(x, y, size + 2, size + 2);
 
-      // 🌊 ripple layering
+      //  ripple layering
       for (int k = 0; k < 3; k++) {
         drawWave(x, y, waveTime - k * 1.5);
       }
     }
 
-    // 🏛 capital label (fade in + fade out)
+    //  capital label (fade in + fade out)
     float labelDelay = 2.0;
     float labelDuration = 6.0;
 
@@ -125,16 +125,16 @@ void draw() {
       float fadeOut = constrain((labelDuration - labelTime) / 2.0, 0, 1);
       float labelFade = fadeIn * fadeOut;
 
-      // ✨ upward drift
+      //  upward drift
       float yOffset = map(labelTime, 0, labelDuration, 0, -10);
 
-      // ✨ glow pass
+      //  glow pass
       fill(100, 200, 255, 60 * labelFade);
       textAlign(CENTER, BOTTOM);
       textSize(12);
       text(cityName, x + 1, y - 4 + yOffset);
 
-      // ✨ main text
+      //  main text
       fill(100, 200, 255, 220 * labelFade);
       textSize(10 + 4 * (1 - fadeIn));
       text(cityName, x, y - 5 + yOffset);
@@ -143,7 +143,7 @@ void draw() {
     visibleCities++;
   }
 
-  // 🧾 HUD
+  //  HUD
   fill(255);
   textSize(14);
   textAlign(LEFT, BOTTOM);
@@ -177,7 +177,7 @@ void drawWave(float lx, float ly, float waveTime) {
   float edgeFade = smoothstep(maxRadius * 0.7, maxRadius, r);
   fade *= (1.0 - edgeFade);
 
-  // 🌊 distortion fades out too
+  //  distortion fades out too
   float distortion = 18.0 * fade;
 
   stroke(255, 80, 80, 120 * fade);
@@ -204,7 +204,7 @@ void drawWave(float lx, float ly, float waveTime) {
     float x = lx + cos(angle) * rr;
     float y = ly + sin(angle) * rr;
 
-    // 🌍 horizontal wrap
+    //  horizontal wrap
     if (x < 0) x += width;
     if (x > width) x -= width;
 
