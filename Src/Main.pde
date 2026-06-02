@@ -216,8 +216,37 @@ void drawWave(float lx, float ly, float waveTime) {
   noStroke();
 }
 
-// 🌫 smooth transition helper
+//  smooth transition helper
 float smoothstep(float edge0, float edge1, float x) {
   float t = constrain((x - edge0) / (edge1 - edge0), 0, 1);
   return t * t * (3 - 2 * t);
 }
+
+/*
+PROGRAM DESCRIPTION
+
+This program visualises cities from a world cities dataset on a world map.
+The CSV file is loaded and processed to identify all countries, their cities,
+and the largest city within each country.
+
+The animation reveals countries one at a time. Cities appear gradually based
+on timing values calculated from the country's position in the dataset. City
+markers are drawn according to their population, with larger populations
+producing slightly larger markers.
+
+The largest city in each country is highlighted in red and generates animated
+ripple waves that expand outward. These waves use Perlin noise to create an
+organic, irregular shape and gradually fade as they grow.
+
+National capitals are detected using the "capital" field in the dataset.
+Their names appear as animated labels that fade in, drift upward, and fade out
+over time.
+
+The drawWave() function creates the ripple effect around leader cities by
+drawing expanding distorted circles. The smoothstep() function is used to
+create smooth fading transitions near the edge of each wave.
+
+A heads-up display (HUD) is shown in the bottom-left corner of the screen,
+displaying the number of visible cities and the currently active country in
+the animation sequence.
+*/
