@@ -1,8 +1,8 @@
-  World Cities Wave Visualization
+#  World Cities Wave Visualization
 
 ---
 
-  Overview
+#  Overview
 
 This project visualizes cities around the world using latitude and longitude data. Cities appear gradually by country, with larger cities acting as “leaders” that emit expanding wave signals. Capital cities are highlighted with animated labels that fade in and out over time.
 
@@ -10,7 +10,7 @@ The result is a slow, atmospheric representation of global urban structure and i
 
 ---
 
-  Features
+#  Features
 
 *  Country-by-country animated reveal
 *  City population-based visualization
@@ -38,7 +38,7 @@ Includes:
 
 ---
 
- How to Run
+# How to Run
 
 1. Install [Processing](https://processing.org/)
 2. Clone or download this repository
@@ -48,7 +48,7 @@ Includes:
 
 ---
 
- Key Concepts
+# Key Concepts
 
 * Data-driven generative art
 * Geographic projection (lat/lng → screen space)
@@ -59,7 +59,7 @@ Includes:
 
 ---
 
-Project Structure
+# Project Structure
 
 ```
 world-cities-visualization/
@@ -81,6 +81,3 @@ This project explores how geographic data can be transformed into a living syste
 
 ---
 
-##Author
-
-Created as a generative data visualization / creative coding project using Processing.
