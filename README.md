@@ -1,5 +1,11 @@
 #  World Cities Wave Visualization
 
+![Processing](https://img.shields.io/badge/Processing-4.x-006699)
+![Data Visualization](https://img.shields.io/badge/Data-Visualization-blue)
+![Geospatial](https://img.shields.io/badge/Domain-Geospatial-green)
+![Generative Art](https://img.shields.io/badge/Style-Generative_Art-purple)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 A generative geospatial visualization that transforms global city data into an animated system of temporal emergence and wave propagation.
 
 Cities are revealed over time by country, with population-driven hierarchy and procedural wave effects originating from major urban centers.
