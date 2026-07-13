@@ -1,4 +1,4 @@
-#  World Cities Wave Visualization
+# World Cities Wave Visualization
 
 ![Processing](https://img.shields.io/badge/Processing-4.x-006699)
 ![Data Visualization](https://img.shields.io/badge/Data-Visualization-blue)
@@ -6,217 +6,453 @@
 ![Generative Art](https://img.shields.io/badge/Style-Generative_Art-purple)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-A generative geospatial visualization that transforms global city data into an animated system of temporal emergence and wave propagation.
+A generative geospatial visualization system that transforms global city data into an animated simulation of urban emergence, hierarchy, and influence propagation.
 
-Cities are revealed over time by country, with population-driven hierarchy and procedural wave effects originating from major urban centers.
-
-The result is a cinematic representation of global urban structure as a dynamic, evolving system.
+The project combines geospatial processing, procedural animation, temporal systems, and data-driven rendering to represent cities as dynamic signals within a global system.
 
 ---
 
-#  Features
+# Overview
 
-##  Temporal Country-Based Animation
+World Cities Wave Visualization converts a global cities dataset into a time-based visual simulation.
 
-* Countries are revealed sequentially over time
-* Cities appear progressively within each active country
-* Global dataset unfolds as a time-driven system
+The system:
 
-##  Population-Based City Encoding
+- Loads global city data
+- Builds geographic and population hierarchies
+- Schedules city emergence over time
+- Generates procedural wave effects
+- Renders an evolving representation of urban structure
 
-* City size scales with population
-* Logarithmic scaling ensures visual balance
-* Higher population = stronger visual presence
+The workflow:
 
-##  Hierarchical Urban Structure
-
-* Each country identifies a **leader city** (highest population)
-* Leader cities act as visual and temporal anchors
-* Capital cities are highlighted with animated labels
-
-##  Procedural Wave System
-
-* Leader cities emit expanding ripple waves
-* Waves use noise-based distortion for organic motion
-* Energy decays over time and distance
-* Soft edge fading creates natural dissipation
-
-##  Cinematic Time System
-
-* Frame-based global time progression
-* Controlled pacing of country activation
-* Smooth emergence and fade transitions
-* Designed for visual storytelling rather than static display
-
----
-
-#  Dataset
-
-This project uses the **World Cities Database** from SimpleMaps:
-
-https://simplemaps.com/data/world-cities
-
-### Dataset includes:
-
-* City name
-* Country
-* Latitude / Longitude
-* Population estimates
-* Capital classification
+```text
+World Cities Dataset
+          |
+          ↓
+Data Processing
+          |
+          ↓
+Country + City Hierarchy
+          |
+          ↓
+Temporal Scheduling System
+          |
+          ↓
+Procedural Wave Engine
+          |
+          ↓
+Processing Rendering Pipeline
+```
 
 ---
 
-#  How It Works
+# Problem
 
-## 1. Data Loading
+Geospatial datasets are often represented as static maps.
 
-World cities dataset is parsed and grouped by country.
+This project explores a different approach:
 
-## 2. Hierarchy Construction
+> How can geographic data be transformed into a dynamic system where patterns, hierarchy, and relationships emerge over time?
+
+Instead of displaying cities as fixed points, the visualization treats them as evolving signals influenced by:
+
+- Population
+- Geography
+- Time
+- Urban hierarchy
+
+---
+
+# Architecture
+
+## System Architecture
+
+```text
+                 City Dataset
+
+                      |
+                      ↓
+
+              Data Loading Layer
+
+                      |
+                      ↓
+
+          Geographic Processing Layer
+
+                      |
+                      ↓
+
+          Temporal Animation Engine
+
+                      |
+                      ↓
+
+          Procedural Wave Generator
+
+                      |
+                      ↓
+
+             Processing Renderer
+```
+
+---
+
+# Components
+
+## Data Processing Layer
+
+Responsibilities:
+
+- Parse city dataset
+- Group cities by country
+- Extract population information
+- Identify capital cities
+- Determine country leader cities
+
+Each city contains:
+
+- Name
+- Country
+- Latitude
+- Longitude
+- Population
+- Capital status
+
+---
+
+## Hierarchy System
+
+The visualization builds a hierarchical model of global cities.
 
 For each country:
 
-* Cities are indexed
-* Largest population city is selected as leader
-* Capitals are flagged for labeling
+- The highest population city becomes the leader city
+- Capital cities receive special visual treatment
+- Smaller cities inherit country activation timing
 
-## 3. Temporal Scheduling
-
-A global time variable controls:
-
-* Country activation timing
-* City appearance sequencing
-* Label animation windows
-* Wave propagation cycles
-
-## 4. Rendering Pipeline
-
-Each frame:
-
-* Cities are filtered by activation time
-* Positions are projected (lat/lng → screen space)
-* Visual properties are computed dynamically
-* Wave system updates and renders expanding ripples
+This creates a structured representation of global urban systems.
 
 ---
 
-#  Key Concepts
+## Temporal Animation Engine
 
-* Geospatial data visualization
-* Temporal animation systems
-* Hierarchical data modeling
-* Procedural motion graphics
-* Noise-based distortion (Perlin noise)
-* Data-driven generative art
-* Emergent visual systems
+A global time system controls:
+
+- Country activation order
+- City appearance timing
+- Label visibility
+- Wave propagation cycles
+- Transition effects
+
+The animation is frame-driven and designed for continuous evolution.
 
 ---
 
-#  Project Structure
+## Procedural Wave System
 
-```bash id="structure1"
+Major cities generate expanding wave effects.
+
+Wave behavior includes:
+
+- Radius expansion
+- Distance-based fading
+- Energy decay
+- Perlin-noise distortion
+- Organic movement patterns
+
+The result is a procedural representation of influence spreading through geographic space.
+
+---
+
+# Core Features
+
+## Temporal Country-Based Emergence
+
+- Countries activate sequentially
+- Cities appear progressively
+- The dataset unfolds as a time-based story
+
+---
+
+## Population-Based Visual Encoding
+
+City importance is represented through population.
+
+Features:
+
+- Population controls visual size
+- Logarithmic scaling maintains balance
+- Larger cities create stronger visual presence
+
+---
+
+## Urban Hierarchy Visualization
+
+The system highlights:
+
+- Leader cities
+- Capital cities
+- Population differences
+- Geographic relationships
+
+---
+
+## Generative Wave Propagation
+
+Leader cities emit animated waves representing:
+
+- Urban influence
+- Connectivity
+- Emergence
+- Expansion
+
+---
+
+# Technical Highlights
+
+- Built a data-driven generative visualization system
+- Implemented geographic coordinate transformation
+- Designed temporal scheduling algorithms
+- Created procedural animation systems
+- Applied hierarchical data modeling
+- Used noise-based motion generation
+- Combined static datasets with dynamic rendering
+
+---
+
+# Design Decisions
+
+## Data-Driven Animation
+
+Instead of manually creating animations, every visual element is generated from data.
+
+Examples:
+
+```
+Population → Visual Size
+
+Country → Activation Timing
+
+Coordinates → Position
+
+City Rank → Visual Importance
+```
+
+---
+
+## Hierarchical Representation
+
+A flat list of cities does not communicate global structure.
+
+The system introduces hierarchy:
+
+```
+World
+ |
+Country
+ |
+Cities
+ |
+Leader City
+```
+
+This allows large datasets to become visually understandable.
+
+---
+
+## Procedural Motion
+
+Wave effects are generated algorithmically instead of using predefined animations.
+
+Benefits:
+
+- Infinite variation
+- Smooth transitions
+- Data-driven behavior
+- Emergent visual patterns
+
+---
+
+# Dataset
+
+Source:
+
+World Cities Database by SimpleMaps
+
+https://simplemaps.com/data/world-cities
+
+Dataset includes:
+
+- City name
+- Country
+- Latitude
+- Longitude
+- Population estimates
+- Capital classification
+
+---
+
+# Project Structure
+
+```text
 world-cities-visualization/
-│
-├── world_cities.pde        # Main Processing sketch
+
+├── world_cities.pde
 ├── data/
-│   └── worldcities.csv     # Dataset
+│   └── worldcities.csv
+│
 ├── exports/
-│   └── preview.gif         # Optional output
+│   └── preview.gif
+│
 └── README.md
 ```
 
 ---
 
-#  How to Run
+# How It Works
 
-1. Install **Processing**
-   https://processing.org/
+## 1. Load Dataset
 
-2. Clone the repository:
-
-```bash id="setup1"
-git clone https://github.com/your-username/world-cities-visualization.git
-```
-
-3. Open:
-
-```
-world_cities.pde
-```
-
-4. Place dataset in:
-
-```
-data/worldcities.csv
-```
-
-5. Click **Run ▶**
+The application reads the global cities dataset and converts records into internal city objects.
 
 ---
 
-#  Visual Philosophy
+## 2. Build Geographic Hierarchy
 
-This project explores cities not as static coordinates, but as:
+Cities are grouped by country.
 
-> **signals in a global dynamic system**
+For each country:
+
+- Cities are indexed
+- Population rankings are calculated
+- Leader cities are selected
+- Capitals are identified
+
+---
+
+## 3. Schedule Animation
+
+A global clock determines:
+
+- When countries appear
+- When cities emerge
+- When labels activate
+- When waves propagate
+
+---
+
+## 4. Render Simulation
+
+Every frame:
+
+1. Active cities are calculated
+2. Coordinates are projected into screen space
+3. Visual properties are computed
+4. Waves are updated
+5. The scene is rendered
+
+---
+
+# Visual Philosophy
+
+This project represents cities as:
+
+> signals in a global dynamic system
 
 Where:
 
-* Population defines visual strength
-* Geography defines structure
-* Time defines emergence
-* Waves represent influence propagation
+- Population defines intensity
+- Geography defines structure
+- Time defines emergence
+- Waves represent influence propagation
 
 ---
 
-#  Design Principles
+# Example Applications
 
-* Data-driven animation over static rendering
-* Temporal storytelling over instant display
-* Emergent visual behavior from simple rules
-* Hierarchical encoding of global systems
-* Continuous motion as a primary interface
-
----
-
-#  Future Improvements
-
-* Interactive zoomable world map (real projection)
-* GPU-accelerated rendering (WebGL / shaders)
-* Real-time dataset streaming
-* Continent-based clustering system
-* User-controlled simulation parameters
-* Transition to 3D globe visualization
+- Geospatial storytelling
+- Urban data visualization
+- Generative art systems
+- Simulation interfaces
+- Educational visualization tools
 
 ---
 
-#  What This Project Demonstrates
+# Challenges
+
+## Large Dataset Visualization
+
+Thousands of geographic points can become visually overwhelming.
+
+Solutions:
+
+- Hierarchical rendering
+- Population-based scaling
+- Progressive activation
+
+---
+
+## Creating Meaningful Motion
+
+Random animation does not communicate information.
+
+Solutions:
+
+- Data-driven timing
+- Procedural wave behavior
+- Hierarchical emergence rules
+
+---
+
+## Geographic Representation
+
+Latitude and longitude coordinates require transformation into visual space.
+
+Solution:
+
+- Coordinate projection system
+- Dynamic positioning calculations
+
+---
+
+# Future Improvements
+
+- Interactive zoomable world map
+- WebGL GPU acceleration
+- Shader-based rendering
+- Real-time dataset streaming
+- Continent-level clustering
+- 3D globe visualization
+- User-controlled simulation parameters
+
+---
+
+# What This Project Demonstrates
 
 This project demonstrates:
 
-* generative systems design
-* procedural animation engineering
-* geospatial visualization techniques
-* temporal data orchestration
-* emergent motion design systems
+- Generative systems engineering
+- Procedural animation
+- Geospatial visualization
+- Temporal data processing
+- Simulation design
+- Data-driven rendering
 
 ---
 
-#  Summary
+# Summary
 
-This is not a static visualization.
+World Cities Wave Visualization is not a static map.
 
 It is a:
 
-> **time-evolving geospatial simulation of global urban structure**
+> time-evolving simulation of global urban structure generated from real-world data.
 
----
+The project explores the intersection of:
 
-#  Big Picture
-
-This project sits at the intersection of:
-
-* data visualization
-* generative art
-* simulation systems
-* geospatial computing
+- Data visualization
+- Simulation systems
+- Geospatial computing
+- Generative design
